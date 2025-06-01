@@ -68,7 +68,4 @@ COPY --from=builder --chown=node:node /directus/dist .
 
 EXPOSE 8055
 
-CMD : \
-	&& node cli.js bootstrap \
-	&& pm2-runtime start ecosystem.config.cjs \
-	;
+CMD ["sh", "-c", "node cli.js bootstrap && pm2-runtime start ecosystem.config.cjs"]
